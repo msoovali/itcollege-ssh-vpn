@@ -10,7 +10,7 @@ case "$distro" in
     * ) sudo pip install -y sshuttle;;
 esac
 
-if [ ! -d "~/.ssh" ]; then
+if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
 fi
 
