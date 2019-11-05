@@ -12,7 +12,7 @@ esac
 
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
-elif [ ! -f ~/.ssh ]; then
+elif [ ! -f ~/.ssh/config ]; then
     touch ~/.ssh/config
 fi
 
