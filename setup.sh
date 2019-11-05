@@ -23,7 +23,7 @@ if cat ~/.ssh/config | grep enos; then
 else
     printf "Enter Your uni-ID: "
     read -r username
-    echo "$(cat ./resources/config)" >> ~/.ssh/config
+    cat ./resources/config >> ~/.ssh/config
     sed -i "s/enos_username/$username/" ~/.ssh/config
 fi
 
