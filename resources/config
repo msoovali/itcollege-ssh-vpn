@@ -1,0 +1,8 @@
+Host enos
+Hostname enos.itcollege.ee
+User enos_username
+
+Host doris
+Hostname doris.itcollege.ee
+User enos_username
+ProxyCommand ssh enos nc -q0 doris 22
