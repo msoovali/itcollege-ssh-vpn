@@ -21,7 +21,7 @@ fi
 if cat ~/.ssh/config | grep enos; then
     echo "Already set up!"
 else
-    printf "Enter enos.itcollege.ee username: "
+    printf "Enter Your uni-ID: "
     read -r username
     echo "$(cat ./resources/config)" >> ~/.ssh/config
     sed -i "s/enos_username/$username/" ~/.ssh/config
