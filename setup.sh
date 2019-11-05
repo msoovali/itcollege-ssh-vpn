@@ -3,17 +3,18 @@
 
 distro=$(cat /etc/*-release | grep ID)
 
-if [[ "$distro" == *"arch"* ]]; then
-    sudo pacman -S sshuttle --noconfirm --needed
-elif [[ "$distro" == *"ubuntu"* ]] || [[ "$distro" == *"debian"* ]]; then
-    sudo apt -y install sshuttle
-elif [[ "$distro" == *"fedora"* ]]; then
-    sudo dnf install sshuttle
-else
-    sudo pip install sshuttle
+case "$distro" in
+    *arch* ) sudo pacman -S sshuttle --noconfirm --needed;;
+    *ubuntu* | *debian* ) sudo apt -y install sshuttle;;
+    *fedora* ) sudo dnf install sshuttle -y;;
+    * ) sudo pip install -y sshuttle;;
+esac
+
+if [ ! -d "~/.ssh" ]; then
+    mkdir ~/.ssh
 fi
 
-if [[ "$(cat ~/.ssh/config | grep enos)" ]]; then
+if $(cat ~/.ssh/config) | grep enos; then
     echo "Already set up!"
 else
     printf "Enter enos.itcollege.ee username: "
