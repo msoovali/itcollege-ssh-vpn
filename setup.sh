@@ -19,7 +19,7 @@ if $(cat ~/.ssh/config) | grep enos; then
 else
     printf "Enter enos.itcollege.ee username: "
     read -r username
-    echo "$(cat ./resource/config)" >> ~/.ssh/config
+    echo "$(cat ./resources/config)" >> ~/.ssh/config
     sed -i "s/enos_username/$username/" ~/.ssh/config
 fi
 
