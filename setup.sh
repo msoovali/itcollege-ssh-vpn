@@ -12,9 +12,11 @@ esac
 
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
+elif [ ! -f ~/.ssh ]; then
+    touch ~/.ssh/config
 fi
 
-if $(cat ~/.ssh/config) | grep enos; then
+if cat ~/.ssh/config | grep enos; then
     echo "Already set up!"
 else
     printf "Enter enos.itcollege.ee username: "
